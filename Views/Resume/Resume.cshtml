@@ -1,0 +1,89 @@
+﻿@model List<KisiselSayfam.Models.Resume>
+@{
+    ViewBag.Title = "Resume";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section id="resume" class="resume section">
+
+   
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Özgeçmiş</h2>
+        <p> </p>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="resume-title">Özet</h3>
+
+                <div class="resume-item pb-0">
+                    <h4>Özlem Cesuroğlu</h4>
+                    <p>
+                        <em>
+                            Yaratıcı çözümlere odaklanan, öğrenmeye hevesli Bilgisayar Mühendisliği öğrencisiyim.
+                            Özellikle back-end alanında uzmanlaşmayı hedefliyorum. Güçlü algoritmik düşünme becerim ve programlama dillerindeki bilgilerimle projeler geliştirmekteyim.
+                        </em>
+                    </p>
+                    <ul>
+                        <li>Van, Türkiye</li>
+                        <li>+90 531 430 1858</li>
+                        <li>csr.ozlem65@gmail.com</li>
+                    </ul>
+                </div>
+
+                <p> </p>
+                <p> </p>
+
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="resume-title">Eğitim</h3>
+                <div class="resume-item">
+                    <h4>Lisans Eğitimi</h4>
+                    <h5>2023 - Halen</h5>
+                    <p><em>Bilgisayar Mühendisliği - GİBTÜ, Gaziantep</em></p>
+                    <h6>Lise Eğitimi</h6>
+                    <h7>2016 - 2020</h7>
+                    <p><em>Mesut Özata Anadolu Lisesi - Van</em></p>
+                </div>
+
+
+            </div>
+
+        </div>
+       
+        @if (Model != null && Model.Any())
+        {
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h3 class="resume-title">Eklenen Özgeçmiş Bilgileri</h3>
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="resume-item">
+                            <h4>@item.Title</h4>
+
+                            @if (!string.IsNullOrEmpty(item.Date))
+                            {
+                                <h5>@item.Date</h5>
+                            }
+
+                            @if (!string.IsNullOrEmpty(item.SubTitle))
+                            {
+                                <p><em>@item.SubTitle</em></p>
+                            }
+
+                            <p>@item.Description</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+
+</section>

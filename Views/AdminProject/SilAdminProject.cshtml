@@ -1,0 +1,17 @@
+﻿@model KisiselSayfam.Models.Project
+
+@{
+    ViewData["Title"] = "Proje Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Bu proje silinecek. Emin misiniz?</h4>
+
+<p><strong>@Model.Title</strong></p>
+
+<form asp-action="SilAdminProject" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button class="btn btn-danger">Sil</button>
+    <a asp-action="ProjectIndex" class="btn btn-secondary">Vazgeç</a>
+</form>

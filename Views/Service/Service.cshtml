@@ -1,0 +1,77 @@
+﻿@model List<KisiselSayfam.Models.Service>
+
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="services" class="services section">
+
+    
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Sunulan Hizmetler</h2>
+        <p>Bilgisayar Mühendisliği öğrencisi olarak sahip olduğum bilgi ve becerileri projelerde kullanarak çeşitli çözümler sunabiliyorum.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+            
+            <div class="col-lg-6 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
+                <div>
+                    <h4 class="title"><a href="service-details.html" class="stretched-link">Web Geliştirme</a></h4>
+                    <p class="description">HTML, CSS ve JavaScript ile modern, kullanıcı dostu ve etkileşimli web siteleri tasarlayıp geliştirebiliyorum.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon flex-shrink-0"><i class="bi bi-terminal"></i></div>
+                <div>
+                    <h4 class="title"><a href="service-details.html" class="stretched-link">Programlama & Yazılım</a></h4>
+                    <p class="description">C# ve Python kullanarak algoritma geliştirme ve yazılım projelerini başarıyla gerçekleştirebiliyorum.</p>
+                </div>
+            </div>
+
+           
+            <div class="col-lg-6 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
+                <div>
+                    <h4 class="title"><a href="service-details.html" class="stretched-link">Veritabanı Yönetimi</a></h4>
+                    <p class="description">SQL ile veri tabanı tasarımı ve yönetimi yapabilir, veri analizi ve raporlama gerçekleştirebiliyorum.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon flex-shrink-0"><i class="bi bi-lightbulb"></i></div>
+                <div>
+                    <h4 class="title"><a href="service-details.html" class="stretched-link">Matematik & Fizik</a></h4>
+                    <p class="description">Analitik düşünme ve problem çözme yeteneklerimi matematik ve fizik bilgimle destekleyerek yazılım ve mühendislik projelerinde etkin şekilde kullanabiliyorum.</p>
+                </div>
+            </div>
+
+        </div>
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="row gy-4 mt-5">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-6 col-md-6 service-item d-flex" data-aos="fade-up">
+                        <div class="icon flex-shrink-0">
+                            <i class="@item.Icon"></i>
+                        </div>
+                        <div>
+                            <h4 class="title">@item.Title</h4>
+                            <p class="description">@item.Description</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+
+</section>

@@ -1,0 +1,25 @@
+﻿@model KisiselSayfam.Models.Skill
+
+@{
+    ViewData["Title"] = "Yetenek Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Yetenek Ekle</h4>
+
+<form asp-action="AddAdminSkill" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Yetenek Adı</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Seviye (%)</label>
+        <input asp-for="Value" type="number" min="0" max="100" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    <a asp-action="SkillIndex" class="btn btn-secondary">Vazgeç</a>
+</form>

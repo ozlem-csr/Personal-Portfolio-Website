@@ -1,0 +1,33 @@
+﻿@model KisiselSayfam.Models.Contact
+
+@{
+    ViewData["Title"] = "İletişim Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Yeni İletişim Ekle</h4>
+
+<form asp-action="AddAdminContact" method="post">
+    <div class="form-group">
+        <label>Ad</label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Soyad</label>
+        <input asp-for="Surname" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Mesaj</label>
+        <textarea asp-for="Message" class="form-control" rows="5"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    <a asp-action="ContactIndex" class="btn btn-secondary">Vazgeç</a>
+</form>

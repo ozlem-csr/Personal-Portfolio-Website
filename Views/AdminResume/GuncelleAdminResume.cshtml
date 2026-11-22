@@ -1,0 +1,41 @@
+﻿@model KisiselSayfam.Models.Resume
+
+@{
+    ViewData["Title"] = "Özgeçmiş Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Özgeçmiş Güncelle</h4>
+
+<form asp-action="GuncelleAdminResume" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label>Üst Başlık</label>
+        <input asp-for="Header" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Başlık</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Alt Başlık</label>
+        <input asp-for="SubTitle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Tarih</label>
+        <input asp-for="Date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Açıklama</label>
+        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+    <a asp-action="ResumeIndex" class="btn btn-secondary">Vazgeç</a>
+</form>

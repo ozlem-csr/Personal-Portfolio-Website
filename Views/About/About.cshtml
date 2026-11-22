@@ -1,0 +1,148 @@
+﻿@model List<KisiselSayfam.Models.About>
+
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section id="about" class="about section">
+
+   
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Hakkımda</h2>
+        <p>Dijital tasarım ve web geliştirme alanında tutkulu bir Bilgisayar Mühendisliği öğrencisiyim. Projelerimde estetik ve işlevselliği bir araya getirmeye odaklanıyor, kullanıcı deneyimini ön planda tutuyorum. Yeni teknolojileri öğrenmekten ve yaratıcı çözümler üretmekten büyük keyif alıyorum.</p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+            <div class="col-lg-4">
+                <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-8 content">
+                <h2>Full-Stack Geliştirici &amp; Web Yazılım Geliştirici.</h2>
+                <p> </p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Doğum Günü:</strong> <span>25 Mart 2002</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Web Sitesi:</strong> <span>www.example.com</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Telefon:</strong> <span>+90 531 430 1852</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Şehir:</strong> <span>Van, Türkiye</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Yaş:</strong> <span>23</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Derece:</strong> <span>Lisans</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>csr.ozlem65@gmail.com</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Serbest Çalışma:</strong> <span>Müsait</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="py-3">
+                    Her projeye özen ve dikkatle yaklaşırım. Hedefim, kullanıcıların deneyimini iyileştirmek ve değer katan dijital ürünler geliştirmektir.
+                    Bana ulaşmak isterseniz aklınızdaki bütün soruları cevaplamaya hazırım.
+                </p>
+                <style>
+                    .about-section {
+                        padding: 80px 0;
+                        background-color: #f9f9f9;
+                    }
+
+                    .about-img-wrapper {
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 20px;
+                        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                        transition: transform 0.3s ease;
+                    }
+
+                        .about-img-wrapper:hover {
+                            transform: translateY(-5px);
+                        }
+
+                        .about-img-wrapper img {
+                            width: 100%;
+                            height: auto;
+                            display: block;
+                            object-fit: cover;
+                        }
+
+                    .about-content {
+                        padding-left: 2rem;
+                       
+                        width: 100%;
+                    }
+
+                    .section-subtitle {
+                        color: #0d6efd;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+
+                    .section-title h2 {
+                        font-size: 2.5rem;
+                        font-weight: 700;
+                        color: #333;
+                        margin-bottom: 20px;
+                    }
+
+                    .about-text {
+                        font-size: 1.1rem;
+                        line-height: 1.8;
+                        color: #555;
+                        
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                        
+                        word-break: break-word;
+                       
+                    }
+
+                   
+                    @@media (max-width: 991px) {
+                        .about-content {
+                            padding-left: 0;
+                            margin-top: 30px;
+                            text-align: center;
+                        }
+
+                        .section-title h2 {
+                            font-size: 2rem;
+                        }
+                    }
+                </style>
+
+                <section id="about" class="about-section">
+                    <div class="container" data-aos="fade-up">
+                        @foreach (var item in Model)
+                        {
+                            <div class="row align-items-center mb-5">
+                                 <div class="col-lg-5">
+                    <img src="@Url.Content(item.ImageUrl)"
+                         class="img-fluid rounded shadow"
+                         alt="@item.Title" />
+                </div> 
+
+                                <div class="col-lg-7">
+                                    <h3>@item.Title</h3>
+                                    <p>@item.Description</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+</section>

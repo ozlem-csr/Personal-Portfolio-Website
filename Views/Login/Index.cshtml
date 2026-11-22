@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="~/Website_Login/style.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="nav_logo">MySite</a>
+            
+            <button class="button" id="form-open">Login</button>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="form_container">
+            <i class="uil uil-times form_close"></i>
+
+            <div class="form login_form">
+                <form asp-action="Index" asp-controller="Login" method="post">
+                    <h2>Login</h2>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="login-error" style="color:red; margin-bottom:10px; font-weight:bold;">@ViewBag.Error</div>
+                    }
+
+                    <div class="input_box">
+                        <input type="email" name="Email" placeholder="Enter your email" required />
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+
+                    <div class="input_box">
+                        <input type="password" name="Password" placeholder="Enter your password" required />
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+
+                    <button type="submit" class="button">Login Now</button>
+                </form>
+            </div>
+
+            <div class="form signup_form">
+                <form>
+                    <h2>Signup</h2>
+                    <div class="input_box">
+                        <input type="email" placeholder="Enter your email" required />
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Create password" required />
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Confirm password" required />
+                    </div>
+                    <button type="button" class="button">Signup Now</button>
+                    <div class="login_signup">
+                        Already have an account? <a href="#" id="login">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/Website_Login/script.js"></script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            if (document.querySelector(".login-error")) {
+                document.querySelector(".home").classList.add("show");
+                document.querySelector(".form_container").classList.remove("active");
+            }
+        });
+    </script>
+
+</body>
+</html>

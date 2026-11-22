@@ -1,0 +1,67 @@
+﻿@model List<KisiselSayfam.Models.Resume>
+
+@{
+    ViewData["Title"] = "Özgeçmiş Yönetimi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header mb-30">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Özgeçmiş Yönetimi</h4>
+        </div>
+        <div class="col-md-6 text-right">
+            <a asp-controller="AdminResume"
+               asp-action="AddAdminResume"
+               class="btn btn-primary">
+                Yeni Ekle
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="card-box">
+    <div class="pd-20">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Alt Başlık</th>
+                    <th>Tarih</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.SubTitle</td>
+                        <td>@item.Date</td>
+                        <td>
+                            <a asp-controller="AdminResume"
+                               asp-action="GuncelleAdminResume"
+                               asp-route-id="@item.Id"
+                               class="btn btn-sm btn-warning">
+                                Güncelle
+                            </a>
+
+                            <form asp-controller="AdminResume"
+                                  asp-action="SilAdminResume"
+                                  asp-route-id="@item.Id"
+                                  method="post"
+                                  style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit"
+                                        class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Silmek istiyor musunuz?');">
+                                    Sil
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

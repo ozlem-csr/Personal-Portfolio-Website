@@ -1,0 +1,80 @@
+﻿@model KisiselSayfam.Models.About
+
+@{
+    ViewData["Title"] = "Hakkımda Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header mb-30">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Hakkımda Güncelle</h4>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="dw dw-left-arrow1"></i> Listeye Dön
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h5 class="text-blue h5">Hakkımda Bilgisi Güncelleme</h5>
+        <p class="mb-0 text-muted">
+            Mevcut hakkımda bilgisini aşağıdaki form üzerinden güncelleyebilirsiniz.
+        </p>
+    </div>
+
+    <div class="pd-20">
+        <form asp-action="GuncelleAdminAbout" method="post">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label>Başlık</label>
+                <input asp-for="Title"
+                       class="form-control"
+                       placeholder="Başlık giriniz"
+                       required />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Açıklama</label>
+                <textarea asp-for="Description"
+                          class="form-control"
+                          rows="5"
+                          placeholder="Açıklama giriniz"
+                          required></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Görsel URL</label>
+                <input asp-for="ImageUrl"
+                       class="form-control"
+                       placeholder="https://..." />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-success">
+                    <i class="dw dw-refresh"></i> Güncelle
+                </button>
+
+                <a asp-action="Index" class="btn btn-danger ml-2">
+                    <i class="dw dw-cancel"></i> Vazgeç
+                </a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+}
+

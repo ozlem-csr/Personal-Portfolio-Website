@@ -1,0 +1,32 @@
+﻿@model KisiselSayfam.Models.About
+
+@{
+    ViewData["Title"] = "Hakkımda Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header mb-30">
+    <h4 class="text-danger">Hakkımda Sil</h4>
+</div>
+
+<div class="card-box">
+    <div class="pd-20">
+        <p>Bu kayıt silinecek. Devam etmek istiyor musunuz?</p>
+
+        <dl class="row">
+            <dt class="col-sm-3">Başlık</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">Açıklama</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+        </dl>
+
+        <form asp-action="SilAdminAbout" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.Id" />
+
+            <button type="submit" class="btn btn-danger">Sil</button>
+            <a asp-action="AboutIndex" class="btn btn-secondary">Vazgeç</a>
+        </form>
+    </div>
+</div>

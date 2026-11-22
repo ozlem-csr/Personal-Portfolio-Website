@@ -1,0 +1,46 @@
+﻿<h2>Layout Yönetimi</h2>
+
+<h4>Profil</h4>
+<form asp-action="SaveProfile" method="post">
+    <input type="hidden" name="Id" value="@ViewBag.Profile?.Id" />
+    <input name="FullName" value="@ViewBag.Profile?.FullName" placeholder="Ad Soyad" />
+    <input name="WebsiteUrl" value="@ViewBag.Profile?.WebsiteUrl" placeholder="Website" />
+    <input name="ProfileImage" value="@ViewBag.Profile?.ProfileImage" placeholder="Foto Url" />
+    <button>Kaydet</button>
+</form>
+
+<hr />
+
+<h4>Sosyal Medya</h4>
+@foreach (var s in ViewBag.Socials)
+{
+    <form asp-action="DeleteSocial" method="post">
+        <span>@s.Icon - @s.Url</span>
+        <input type="hidden" name="id" value="@s.Id" />
+        <button>Sil</button>
+    </form>
+}
+<form asp-action="AddSocial" method="post">
+    <input name="Icon" placeholder="bi bi-instagram" />
+    <input name="Url" placeholder="https://..." />
+    <button>Ekle</button>
+</form>
+
+<hr />
+
+<h4>Menü</h4>
+@foreach (var m in ViewBag.Menus)
+{
+    <form asp-action="DeleteMenu" method="post">
+        <span>@m.Title (@m.Url)</span>
+        <input type="hidden" name="id" value="@m.Id" />
+        <button>Sil</button>
+    </form>
+}
+<form asp-action="AddMenu" method="post">
+    <input name="Title" placeholder="Başlık" />
+    <input name="Icon" placeholder="bi bi-house" />
+    <input name="Url" placeholder="/Home/Index" />
+    <input name="Order" type="number" placeholder="Sıra" />
+    <button>Ekle</button>
+</form>
